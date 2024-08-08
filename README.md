@@ -84,9 +84,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 ## Contact
 
-Your Name - youremail@example.com
-
-Project Link: [https://github.com/esobrino/file-whisperer](https://github.com/yourusername/FileWhisperer)
+Project Link: [https://github.com/ezequielsobrino/file-whisperer](https://github.com/yourusername/FileWhisperer)
 
 ## Acknowledgements
 

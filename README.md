@@ -22,7 +22,7 @@ Before you begin, ensure you have met the following requirements:
 
 1. Clone the repository:
    ```
-   git clone https://github.com/yourusername/FileWhisperer.git
+   git clone https://github.com/ezequielsobrino/file-whisperer.git
    cd FileWhisperer
    ```
 
@@ -40,6 +40,11 @@ Before you begin, ensure you have met the following requirements:
 4. Create a `.env` file in the root directory and add your Groq API key:
    ```
    GROQ_API_KEY=your_api_key_here
+   ```
+
+Note: If you encounter issues activating the virtual environment, ensure you have the necessary permissions and that the PowerShell execution policy allows script execution.
+   ```
+   Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
    ```
 
 ## Usage

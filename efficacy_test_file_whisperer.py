@@ -1,10 +1,10 @@
 import os
 import shutil
-import json
-from main import run_conversation
+from file_manager import FileManager
 
 def verify_action(command, expected_outcome, verification_function):
-    result = run_conversation(command)
+    file_manager = FileManager()
+    result = file_manager.run_conversation(command)
     success = verification_function(result)
     return {
         "command": command,

@@ -11,6 +11,10 @@ FileWhisperer is an intelligent file management assistant that uses natural lang
 - List folder contents
 - All operations performed through natural language commands
 
+## Video Demonstration
+
+[![FileWhisperer Demo](https://img.youtube.com/vi/fgtj3Y_wMyM/0.jpg)](https://youtu.be/fgtj3Y_wMyM)
+
 ## Prerequisites
 
 Before you begin, ensure you have met the following requirements:

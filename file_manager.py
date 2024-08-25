@@ -1,27 +1,35 @@
 import os
 import json
 from groq import Groq
-from dotenv import load_dotenv
+from dotenv import load_dotenv, set_key, find_dotenv
 
 class FileManager:
-    """
-    A class that provides a natural language interface for file and folder operations.
-
-    This class uses the Groq API to interpret user commands and perform file system operations.
-    The main public interface is the run_conversation method, which takes a user prompt
-    and returns the result of the interpreted command.
-
-    Attributes:
-        groq_api_key (str): The API key for Groq.
-        client (Groq): The Groq client instance.
-        MODEL (str): The name of the Groq model to use.
-    """
-
     def __init__(self):
-        load_dotenv()
-        self.groq_api_key = os.getenv('GROQ_API_KEY')
-        self.client = Groq(api_key=self.groq_api_key)
+        self.config_file = find_dotenv()
+        if not self.config_file:
+            self.config_file = '.env'
+            print(f"No existing .env file found. A new one will be created at: {os.path.abspath(self.config_file)}")
+        else:
+            print(f"Using existing configuration file: {self.config_file}")
+        
+        self.load_api_key()
+        self.client = None
         self.MODEL = 'llama3-groq-70b-8192-tool-use-preview'
+
+    def load_api_key(self):
+        load_dotenv(self.config_file)
+        self.groq_api_key = os.getenv('GROQ_API_KEY')
+
+    def save_api_key(self, api_key):
+        set_key(self.config_file, 'GROQ_API_KEY', api_key)
+        self.groq_api_key = api_key
+        print(f"API Key saved in: {self.config_file}")
+
+    def initialize_client(self):
+        if self.groq_api_key:
+            self.client = Groq(api_key=self.groq_api_key)
+        else:
+            raise ValueError("GROQ API Key is not configured. Please configure it first.")
 
     def create_folder(self, path):
         try:
@@ -69,6 +77,7 @@ class FileManager:
         except Exception as e:
             return json.dumps({"error": str(e)})
 
+
     def run_conversation(self, user_prompt):
         """
         Process a user's natural language prompt and perform the requested file operation.
@@ -86,6 +95,10 @@ class FileManager:
         Raises:
             Exception: If there's an error in processing the request or performing the operation.
         """
+
+        if not self.client:
+            self.initialize_client()
+
         messages = [
             {
                 "role": "system",

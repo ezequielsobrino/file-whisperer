@@ -30,13 +30,7 @@ Before you begin, ensure you have met the following requirements:
    cd file-whisperer
    ```
 
-2. Create a virtual environment and activate it:
-   ```
-   python -m venv venv
-   source venv/bin/activate  # On Windows use `venv\Scripts\activate` or `.\venv\Scripts\Activate.ps1` in powershell
-   ```
-
-3. Install the required packages:
+2. Install the required packages:
    ```
    pip install -r requirements.txt
    ```

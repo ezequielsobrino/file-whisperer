@@ -81,10 +81,6 @@ Contributions to FileWhisperer are welcome. Please follow these steps:
 
 Distributed under the MIT License. See `LICENSE` for more information.
 
-## Contact
-
-Project Link: [https://github.com/ezequielsobrino/file-whisperer](https://github.com/yourusername/FileWhisperer)
-
 ## Acknowledgements
 
 - [Groq API](https://www.groq.com/)
